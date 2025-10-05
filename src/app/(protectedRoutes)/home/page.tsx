@@ -1,10 +1,10 @@
 import React from "react";
-// import Onboarding from "./_components/OnBoarding";
+import Onboarding from "./_components/OnBoarding";
 import FeatureCard from "./_components/FeatureCard";
-// import { potentialCustomer } from "@/lib/data";
+import { potentialCustomer } from "@/lib/data";
 import { Upload, Webcam } from "lucide-react";
 import FeatureSectionLayout from "./_components/FeatureSectionLayout";
-// import UserInfoCard from "@/components/ReusableComponent/UserInfoCard";
+import UserInfoCard from "@/components/ReusableComponent/UserInfoCard";
 import Image from "next/image";
 type Props = {};
 
@@ -16,7 +16,7 @@ const Pages = (props: Props) => {
           <h2 className="text-primary font-semibold text-4xl">
             Get maximum Conversion from your webinars
           </h2>
-          {/* <Onboarding /> */}
+          <Onboarding />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 place-content-center">
           <FeatureCard
@@ -55,7 +55,7 @@ const Pages = (props: Props) => {
             </div>
           </div>
         </FeatureSectionLayout>
-        {/* <FeatureSectionLayout
+        <FeatureSectionLayout
           heading="See the list of your current customers"
           link="/pipeline"
         >
@@ -75,7 +75,7 @@ const Pages = (props: Props) => {
               className="object-cover rounded-xl absolute px-5 mb-28 hidden sm:flex backdrop-blur-[20px]"
             />
           </div>
-        </FeatureSectionLayout> */}
+        </FeatureSectionLayout>
       </div>
     </div>
   );
