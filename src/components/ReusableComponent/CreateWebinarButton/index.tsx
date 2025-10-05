@@ -10,11 +10,11 @@ import {
 import { useWebinarStore } from "@/store/useWebinarStore";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-// import MultiStepForm from './MultiStepForm'
-// import BasicInfoStep from './BasicInfoStep'
-// import CTAStep from './CTAStep'
-// import AdditionalInfoStep from './AdditionalInfoStep'
-// import SuccessStep from './SuccessStep'
+import MultiStepForm from "./MultiStepForm";
+import BasicInfoStep from "./BasicInfoStep";
+import CTAStep from "./CTAStep";
+import AdditionalInfoStep from "./AdditionalInfoStep";
+import SuccessStep from "./SuccessStep";
 
 type Props = {};
 
@@ -27,29 +27,21 @@ const CreateWebinarButton = (props: Props) => {
       id: "basicInfo",
       title: "Basic Information",
       description: "Please fill out the standard info needed for your webinar",
-      // component: <BasicInfoStep />,
-      component: <></>,
+      component: <BasicInfoStep />,
     },
     {
       id: "cta",
       title: "CTA",
       description:
         "Please provide the end-point for your customers through your webinar",
-      // component: (
-      //   <CTAStep
-      //     assistants={[]}
-      //     stripeProducts={[]}
-      //   />
-      // ),
-      component: <></>,
+      component: <CTAStep assistants={[]} stripeProducts={[]} />,
     },
     {
       id: "additionalInfo",
       title: "Additional information",
       description:
         "Please fill out information about additional options if necessary",
-      // component: <AdditionalInfoStep/>,
-      component: <></>,
+      component: <AdditionalInfoStep />,
     },
   ];
 
@@ -66,27 +58,27 @@ const CreateWebinarButton = (props: Props) => {
   return (
     <Dialog open={isModalOpen} onOpenChange={setModalOpen}>
       <DialogTrigger asChild>
-        <button
+        <Button
           className="rounded-xl flex gap-2 items-center hover:cursor-pointer px-4 py-2 border border-border bg-primary/10 backdrop-blur-sm text-sm font-normal text-primary hover:bg-primary-20"
           onClick={() => setModalOpen(true)}
         >
           <Plus className="w-4 h-4" />
           Create Webinar
-        </button>
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[900px] p-0 bg-transparent border-none">
         {isComplete ? (
           <div className="bg-muted text-primary rounded-lg overflow-hidden">
             <DialogTitle className="sr-only">Webinar Created</DialogTitle>
-            {/* <SuccessStep
+            <SuccessStep
               webinarLink={webinarLink}
               onCreateNew={handleCreateNew}
-            /> */}
+            />
           </div>
         ) : (
           <>
             <DialogTitle className="sr-only">Create Webinar</DialogTitle>
-            {/* <MultiStepForm steps={steps} onComplete={handleComplete} /> */}
+            <MultiStepForm steps={steps} onComplete={handleComplete} />
           </>
         )}
       </DialogContent>
